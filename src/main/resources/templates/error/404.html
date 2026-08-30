@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+    <th:block th:replace="~{common/header}"></th:block>
+</head>
+<body>
+<div class="wrapper">
+    <!--START MENU AREA-->
+    <th:block th:replace="~{common/menu}"></th:block>
+    <!--END MENU AREA-->
+
+    <!-- BREADCRUMBS SETCTION START -->
+    <th:block th:replace="~{common/breadcrumb :: breadcrumb('404', '404')}"></th:block>
+    <!-- BREADCRUMBS SETCTION END -->
+
+    <!-- Start page content -->
+    <div id="page-content" class="page-wrapper section">
+
+        <!-- ERROR SECTION START -->
+        <div class="error-section mb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="error-404 box-shadow">
+                            <img src="img/others/error.jpg" alt="">
+                            <div class="go-to-btn btn-hover-2">
+                                <a href="../index.html">go to home page</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ERROR SECTION END -->
+
+    </div>
+    <!-- End page content -->
+
+    <!--START FOOTER AREA-->
+    <th:block th:replace="~{common/footer}"></th:block>
+
+</div>
+
+<!--SCRIPTS-->
+<th:block th:replace="~{common/scripts}"></th:block>
+</body>
+</html>
