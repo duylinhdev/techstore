@@ -1,4 +1,4 @@
-package com.linh.ecommerce.controllers;
+package com.linh.techstore.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
