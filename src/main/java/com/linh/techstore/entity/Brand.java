@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Brand extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -24,7 +24,6 @@ public class Brand extends BaseEntity {
     private String slug;
 
     private String description;
-    private String imageUrl;
     private String logoUrl;
 
 }

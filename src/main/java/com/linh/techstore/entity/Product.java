@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Table(name = "products")
@@ -35,11 +37,11 @@ public class Product extends BaseEntity {
     @Column(unique = true)
     private String sku;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
@@ -47,5 +49,9 @@ public class Product extends BaseEntity {
 
     @Column(nullable = false)
     private Integer quantity = 0;
+
+    @BatchSize(size = 20)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private Set<ProductImage> images;
 
 }
