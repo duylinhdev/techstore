@@ -113,7 +113,7 @@ public class ProductService {
     }
 
     public List<ProductResponse> getNewProducts() {
-        Pageable pageable = PageRequest.of(0, 10);
+        Pageable pageable = PageRequest.of(0, 8);
         return productRepository.findAllByOrderByCreatedAtDesc(pageable).stream().map(productConverter::entityToResponse).toList();
     }
 
