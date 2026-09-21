@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 d-none d-md-block">
                     <div class="call-us">
-                        <p class="mb-0 roboto">0123456789</p>
+                        <p class="mb-0 roboto">0343859905</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -53,100 +53,38 @@
                     <div class="col-lg-8 d-none d-lg-block">
                         <nav id="primary-menu">
                             <ul class="main-menu text-center">
-                                <li><a th:href="@{/}">Trang Chủ</a>
-                                </li>
-                                <li class="mega-parent"><a th:href="@{/san-pham}">Sản Phẩm</a>
-                                    <div class="mega-menu-area clearfix">
-                                        <div class="mega-menu-link f-left">
-                                            <ul class="single-mega-item">
-                                                <li class="menu-title">Smart Phone</li>
-                                                <li>
-                                                    <a href="#">All Mobile Phones</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Smart phones</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Android Mobiles</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Windows Mobiles</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Refurbished Mobiles</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">All Mobile Accessories</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Cases & Covers</a>
-                                                </li>
-                                            </ul>
-                                            <ul class="single-mega-item">
-                                                <li class="menu-title">Note Book</li>
-                                                <li>
-                                                    <a href="">All Note Books</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Smart notebooks</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Android Note Book</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Windows Note Books</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Refurbished Note Books</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Note Books Accessories</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Cases & Covers</a>
-                                                </li>
-                                            </ul>
-                                            <ul class="single-mega-item">
-                                                <li class="menu-title">Tablets</li>
-                                                <li>
-                                                    <a href="">All Tablets</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Smart tablets</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Android Tablets</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Windows Tablets</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Refurbished Tablets</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Tablets Accessories</a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Cases & Covers</a>
+                                <li><a th:href="@{/}">Trang Chủ</a></li>
+
+                                <li class="mega-parent" style="position: relative;">
+                                    <a th:href="@{/san-pham}">Sản Phẩm</a>
+
+                                    <div class="mega-menu-area clearfix" style="position: absolute; left: 50%; transform: translateX(-50%); width: 850px; padding: 20px; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 99;">
+
+                                        <!-- Phần chứa danh mục bên trái (4 cột) -->
+                                        <div class="mega-menu-link f-left" style="width: 75%;">
+                                            <ul class="single-mega-item" style="width: 100%; display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0;">
+                                                <li th:if="${categories != null}" th:each="cat : ${categories}" style="width: 25%; padding: 8px 10px; box-sizing: border-box; text-align: left;">
+                                                    <!-- Đổi display: block thành display: inline-block ở đây để hiệu ứng ôm sát chữ -->
+                                                    <a th:href="@{/san-pham(category=${cat.slug})}" th:text="${cat.name}" style="font-weight: 600; color: #333; display: inline-block; text-transform: capitalize;">Tên Danh Mục</a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="mega-menu-photo f-left">
+
+                                        <!-- Phần ảnh quảng cáo bên phải -->
+                                        <div class="mega-menu-photo f-left" style="width: 25%;">
                                             <a href="#">
-                                                <img src="img/mega-menu/1.jpg" alt="mega menu image">
+                                                <img th:src="@{/img/mega-menu/1.jpg}" alt="mega menu image" style="width: 100%; height: auto;">
                                             </a>
                                         </div>
+
                                     </div>
                                 </li>
-                                    <a th:href="@{/gioi-thieu}">Giới Thiệu</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/lien-he}">Liên Hệ</a>
-                                </li>
+
+                                <li><a th:href="@{/gioi-thieu}">Giới Thiệu</a></li>
+                                <li><a th:href="@{/lien-he}">Liên Hệ</a></li>
                             </ul>
                         </nav>
                     </div>
-                    <!-- header-search & total-cart -->
                     <div class="col-lg-2 col-md-8">
                         <div class="search-top-cart  f-right">
                             <!-- header-search -->
