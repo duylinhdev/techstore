@@ -1,23 +1,33 @@
 package com.linh.techstore.controller;
 
+import com.linh.techstore.service.BrandService;
+import com.linh.techstore.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
+@RequiredArgsConstructor
 public class MainController {
-    @GetMapping("/")
-    public String index() {
+
+    private final ProductService productService;
+    private final BrandService brandService;
+
+    @GetMapping({"/", "/trang-chu"})
+    public String index(Model model) {
+
+        model.addAttribute("newProducts", productService.getNewProducts());
+
+        model.addAttribute("featureProducts", productService.getFeatureProducts());
+
+        model.addAttribute("brands", brandService.listBrands());
         return "index";
     }
 
     @GetMapping("/dang-nhap")
     public String login() {
         return "login";
-    }
-
-    @GetMapping("/san-pham")
-    public String showProducts() {
-        return "shop";
     }
 
     @GetMapping("/lien-he")
