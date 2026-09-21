@@ -45,7 +45,7 @@
                     <div class="col-lg-2 col-md-4">
                         <div class="logo">
                             <a th:href="@{/}">
-                                <img src="img/logo/logo.png" alt="main logo">
+                                <img th:src="@{/img/logo/logo.png}" alt="main logo">
                             </a>
                         </div>
                     </div>
@@ -155,9 +155,11 @@
                                     <button class="search-toggle">
                                         <i class="zmdi zmdi-search"></i>
                                     </button>
-                                    <form action="#">
+                                    <form th:action="@{/san-pham}">
                                         <div class="top-search-box">
-                                            <input type="text" placeholder="Search here your product...">
+                                            <input type="text" name="keyword"
+                                                    th:value="${param.keyword != null ? param.keyword[0] : ''}"
+                                                    placeholder="Tìm kiếm sản phẩm...">
                                             <button type="submit">
                                                 <i class="zmdi zmdi-search"></i>
                                             </button>

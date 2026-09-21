@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Chi tiết sản phẩm</title>
+    <th:block th:replace="~{common/header}"></th:block>
+</head>
+
+<body>
+<!-- Body main wrapper start -->
+<div class="wrapper">
+    <th:block th:replace="~{common/menu}"></th:block>
+
+    <th:block th:replace="~{common/breadcrumb :: breadcrumb('CHI TIẾT SẢN PHẨM', 'CHI TIẾT SẢN PHẨM')}"></th:block>
+
+    <!-- Start page content -->
+    <section id="page-content" class="page-wrapper section">
+        <!-- SHOP SECTION START -->
+        <div class="shop-section mb-80">
+            <div class="container">
+                <div class="row">
+                    <!-- Main content -->
+                    <div class="col-lg-12">
+                        <!-- single-product-area start -->
+                        <div class="single-product-area mb-80">
+                            <div class="row">
+                                <!-- imgs-zoom-area start -->
+                                <div class="col-lg-5">
+                                    <div class="imgs-zoom-area">
+                                        <img id="zoom_03"
+                                                th:src="${product.mainImageUrl}"
+                                                th:data-zoom-image="${product.mainImageUrl}"
+                                                alt="Product Image"/>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div id="gallery_01" class="carousel-btn slick-arrow-3 mt-30">
+                                                    <div class="p-c" th:each="image : ${product.galleryUrls}">
+                                                        <a href="#"
+                                                                th:data-image="${image}"
+                                                                th:data-zoom-image="${image}">
+                                                            <img class="zoom_03"
+                                                                    th:src="${image}"
+                                                                    alt="Product Thumbnail"/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- imgs-zoom-area end -->
+
+                                <!-- single-product-info start -->
+                                <div class="col-lg-7">
+                                    <div class="single-product-info">
+                                        <h3 class="text-black-1" th:text="${product.name}">
+                                            Dummy Product Name
+                                        </h3>
+                                        <h6 class="brand-name-2" th:text="${product.brandName}">
+                                            brand name
+                                        </h6>
+
+                                        <hr/>
+
+                                        <!-- single-pro-color-rating -->
+                                        <div class="single-pro-color-rating clearfix">
+                                            <div class="pro-rating sin-pro-rating f-left">
+                                                <a href="#" tabindex="0"><i class="zmdi zmdi-star"></i></a>
+                                                <a href="#" tabindex="0"><i class="zmdi zmdi-star"></i></a>
+                                                <a href="#" tabindex="0"><i class="zmdi zmdi-star"></i></a>
+                                                <a href="#" tabindex="0"><i class="zmdi zmdi-star-half"></i></a>
+                                                <a href="#" tabindex="0"><i class="zmdi zmdi-star-outline"></i></a>
+                                                <span class="text-black-5">( 27 Rating )</span>
+                                            </div>
+                                        </div>
+
+                                        <hr/>
+
+                                        <!-- plus-minus-pro-action -->
+                                        <div class="plus-minus-pro-action clearfix">
+                                            <div class="sin-plus-minus f-left clearfix">
+                                                <p class="color-title f-left">Số lượng</p>
+                                                <div class="cart-plus-minus f-left">
+                                                    <input type="text"
+                                                            value="02"
+                                                            name="qtybutton"
+                                                            class="cart-plus-minus-box"/>
+                                                </div>
+                                            </div>
+                                            <div class="sin-pro-action f-right">
+                                                <ul class="action-button">
+                                                    <li>
+                                                        <a href="#" title="Wishlist" tabindex="0">
+                                                            <i class="zmdi zmdi-favorite"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#productModal"
+                                                                title="Quickview"
+                                                                tabindex="0">
+                                                            <i class="zmdi zmdi-zoom-in"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" title="Compare" tabindex="0">
+                                                            <i class="zmdi zmdi-refresh"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" title="Add to cart" tabindex="0">
+                                                            <i class="zmdi zmdi-shopping-cart-plus"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- plus-minus-pro-action end -->
+
+                                        <hr/>
+
+                                        <!-- single-product-price -->
+                                        <h3 class="pro-price"
+                                                th:text="${#numbers.formatDecimal(product.price, 0, 'POINT', 0, 'COMMA')} + ' VNĐ'">
+                                            Price
+                                        </h3>
+
+                                        <hr/>
+
+                                        <div>
+                                            <a href="#" class="button extra-small button-black" tabindex="-1">
+                                                <span class="text-uppercase">Mua</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- single-product-info end -->
+                            </div>
+
+                            <!-- single-product-tab -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <hr/>
+                                    <div class="single-product-tab reviews-tab">
+                                        <ul class="nav mb-20">
+                                            <li>
+                                                <a class="active" href="#description" data-bs-toggle="tab">description</a>
+                                            </li>
+                                            <li>
+                                                <a href="#information" data-bs-toggle="tab">information</a>
+                                            </li>
+                                            <li>
+                                                <a href="#reviews" data-bs-toggle="tab">reviews</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active show" id="description">
+                                                <p th:text="${product.description}">
+                                                </p>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="information">
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem,
+                                                    neque fugit inventore quo dignissimos est iure natus quis nam
+                                                    illo officiis, deleniti consectetur non, aspernatur.
+                                                </p>
+                                                <p>
+                                                    rerum blanditiis dolore dignissimos expedita consequatur
+                                                    deleniti consectetur non exercitationem.
+                                                </p>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="reviews">
+                                                <!-- reviews-tab-desc -->
+                                                <div class="reviews-tab-desc">
+                                                    <!-- single comments -->
+                                                    <div class="media mt-30">
+                                                        <div class="media-left">
+                                                            <a href="#">
+                                                                <img class="media-object"
+                                                                        src="img/author/1.jpg"
+                                                                        alt="#"/>
+                                                            </a>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <div class="clearfix">
+                                                                <div class="name-commenter pull-left">
+                                                                    <h6 class="media-heading">
+                                                                        <a href="#">Gerald Barnes</a>
+                                                                    </h6>
+                                                                    <p class="mb-10">27 Jun, 2019 at 2:30pm</p>
+                                                                </div>
+                                                                <div class="pull-right">
+                                                                    <ul class="reply-delate">
+                                                                        <li><a href="#">Reply</a></li>
+                                                                        <li>/</li>
+                                                                        <li><a href="#">Delate</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-0">
+                                                                Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                                elit. Integer accumsan egestas.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- single comments -->
+                                                    <div class="media mt-30">
+                                                        <div class="media-left">
+                                                            <a href="#">
+                                                                <img class="media-object"
+                                                                        src="img/author/2.jpg"
+                                                                        alt="#"/>
+                                                            </a>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <div class="clearfix">
+                                                                <div class="name-commenter pull-left">
+                                                                    <h6 class="media-heading">
+                                                                        <a href="#">Gerald Barnes</a>
+                                                                    </h6>
+                                                                    <p class="mb-10">27 Jun, 2019 at 2:30pm</p>
+                                                                </div>
+                                                                <div class="pull-right">
+                                                                    <ul class="reply-delate">
+                                                                        <li><a href="#">Reply</a></li>
+                                                                        <li>/</li>
+                                                                        <li><a href="#">Delate</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-0">
+                                                                Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                                elit. Integer accumsan egestas.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single-product-area end -->
+
+                        <!-- related-product-area -->
+                        <div class="related-product-area" th:if="${not #lists.isEmpty(relatedProducts)}">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="section-title text-start mb-40">
+                                        <h2 class="uppercase">Có thể bạn cũng thích</h2>
+                                    </div>
+                                    <div class="active-related-product">
+                                        <!-- product-item -->
+                                        <div class="product-item" th:each="relatedProduct : ${relatedProducts}">
+                                            <div class="product-img">
+                                                <a th:href="@{/san-pham/{slug}(slug=${relatedProduct.slug})}">
+                                                    <img th:src="${relatedProduct.mainImageUrl}" th:alt="${relatedProduct.name}"/>
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <h6 class="product-title">
+                                                    <a th:href="@{/san-pham/{slug}(slug=${relatedProduct.slug})}" th:text="${relatedProduct.name}">Product Name</a>
+                                                </h6>
+                                                <div class="pro-rating">
+                                                    <a href="#"><i class="zmdi zmdi-star"></i></a>
+                                                    <a href="#"><i class="zmdi zmdi-star"></i></a>
+                                                    <a href="#"><i class="zmdi zmdi-star"></i></a>
+                                                    <a href="#"><i class="zmdi zmdi-star-half"></i></a>
+                                                    <a href="#"><i class="zmdi zmdi-star-outline"></i></a>
+                                                </div>
+                                                <h3 class="pro-price" th:text="${#numbers.formatDecimal(relatedProduct.price, 0, 'POINT', 0, 'COMMA')} + ' VNĐ'">$ 869.00</h3>
+                                                <ul class="action-button">
+                                                    <li>
+                                                        <a href="#" title="Wishlist">
+                                                            <i class="zmdi zmdi-favorite"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#productModal"
+                                                                title="Quickview">
+                                                            <i class="zmdi zmdi-zoom-in"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" title="Compare">
+                                                            <i class="zmdi zmdi-refresh"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" title="Add to cart">
+                                                            <i class="zmdi zmdi-shopping-cart-plus"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div th:if="${#lists.isEmpty(relatedProducts)}" class="text-muted">
+                                    <p>Không có sản phẩm liên quan nào khác.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SHOP SECTION END -->
+    </section>
+    <!-- End page content -->
+
+    <th:block th:replace="~{common/footer}"></th:block>
+
+    <!-- START QUICKVIEW PRODUCT -->
+    <div id="quickview-wrapper">
+        <!-- Modal -->
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button"
+                                class="close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-product clearfix">
+                            <div class="product-images">
+                                <div class="main-image images">
+                                    <img alt="" src="img/product/quickview.jpg"/>
+                                </div>
+                            </div>
+                            <!-- .product-images -->
+
+                            <div class="product-info">
+                                <h1>Aenean eu tristique</h1>
+                                <div class="price-box-3">
+                                    <div class="s-price-box">
+                                        <span class="new-price">£160.00</span>
+                                        <span class="old-price">£190.00</span>
+                                    </div>
+                                </div>
+                                <a href="single-product-left-sidebar.html" class="see-all">See all features</a>
+                                <div class="quick-add-to-cart">
+                                    <form method="post" class="cart">
+                                        <div class="numbers-row">
+                                            <input type="number" id="french-hens" value="3" min="1"/>
+                                        </div>
+                                        <button class="single_add_to_cart_button" type="submit">
+                                            Add to cart
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="quick-desc">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla
+                                    augue nec est tristique auctor. Donec non est at libero.
+                                </div>
+                                <div class="social-sharing">
+                                    <div class="widget widget_socialsharing_widget">
+                                        <h3 class="widget-title-modal">Share this product</h3>
+                                        <ul class="social-icons clearfix">
+                                            <li>
+                                                <a class="facebook" href="#" target="_blank" title="Facebook">
+                                                    <i class="zmdi zmdi-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="google-plus" href="#" target="_blank" title="Google +">
+                                                    <i class="zmdi zmdi-google-plus"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="twitter" href="#" target="_blank" title="Twitter">
+                                                    <i class="zmdi zmdi-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="pinterest" href="#" target="_blank" title="Pinterest">
+                                                    <i class="zmdi zmdi-pinterest"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="rss" href="#" target="_blank" title="RSS">
+                                                    <i class="zmdi zmdi-rss"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- .product-info -->
+                        </div>
+                        <!-- .modal-product -->
+                    </div>
+                    <!-- .modal-body -->
+                </div>
+                <!-- .modal-content -->
+            </div>
+            <!-- .modal-dialog -->
+        </div>
+        <!-- END Modal -->
+    </div>
+    <!-- END QUICKVIEW PRODUCT -->
+</div>
+<!-- Body main wrapper end -->
+
+<th:block th:replace="~{common/scripts}"></th:block>
+</body>
+</html>
